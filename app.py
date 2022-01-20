@@ -1,4 +1,3 @@
-import imp
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -25,9 +24,16 @@ fig = plt.figure(figsize = (12,6))
 plt.plot(df.Close)
 st.pyplot(fig)
 
+st.subheader('Closing Price vs Time Chart With 100 MA')
+ma100=df.Close.rolling(100).mean()
+fig = plt.figure(figsize=(12, 6))
+plt.plot(ma100)
+plt.plot(df.Close)
+st.pyplot(fig)
+
 st.subheader('Closing Price vs Time Chart With 100MA & 200MA')
-ma100 = df.Close.rolling(100).mean
-ma200 = df.Close.rolling(200).mean
+ma100 = df.Close.rolling(100).mean()
+ma200 = df.Close.rolling(200).mean()
 fig = plt.figure(figsize = (12,6))
 plt.plot(ma100,'r')
 plt.plot(ma200,'g')
